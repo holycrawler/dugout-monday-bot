@@ -1,8 +1,8 @@
 import parseHtmlToDom from "./parseHtmlToDom.js";
 import { parsePlayerTables } from "./parser/players.js";
 
-const doFetchMyPlayers = async ({ username, cookie }, param) => {
-  console.log(`[${username}] Fetching players...`);
+const doFetchMyPlayers = async ({ cookie }, param) => {
+  console.log(`Fetching players...`);
   const url =
     param === "toyouth"
       ? "https://www.dugout-online.com/players/none/clubid/0"
@@ -21,7 +21,7 @@ const doFetchMyPlayers = async ({ username, cookie }, param) => {
     const dom = parseHtmlToDom(html);
     return parsePlayerTables(dom);
   } catch (error) {
-    console.error(`[${username}] GET request failed: ${error.message}`);
+    console.error(`GET request failed: ${error.message}`);
     throw error;
   }
 };
