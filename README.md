@@ -5,7 +5,7 @@
 **YOU COULD GET BANNED**
 **USE AT YOUR OWN RISK**
 
-# Dugout-MondayBot
+# dugout-monday-bot
 
 This project uses **GitHub Actions Workflows** to run an automated script on **GitHub’s servers** at scheduled times:
 
