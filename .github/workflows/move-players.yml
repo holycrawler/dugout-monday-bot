@@ -1,0 +1,40 @@
+name: move-players
+
+on:
+  schedule:
+    - cron: "0 12 * * 1" # Every Monday at 12:00 UTC
+    - cron: "0 0 * * 2" # Every Tuesday at 00:00 UTC
+  workflow_dispatch:
+    inputs:
+      job:
+        description: "Which job to run"
+        required: true
+        type: choice
+        options:
+          - movetoyouth
+          - moveto1st
+
+jobs:
+  movetoyouth:
+    if: github.event.schedule == '0 12 * * 1' || (github.event_name == 'workflow_dispatch' && github.event.inputs.job == 'movetoyouth')
+    runs-on: ubuntu-latest
+    env:
+      CREDENTIALS: ${{ secrets.CREDENTIALS }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install dependencies
+        run: npm install
+      - name: Run movetoyouth
+        run: npm run movetoyouth
+
+  moveto1st:
+    if: github.event.schedule == '0 0 * * 2' || (github.event_name == 'workflow_dispatch' && github.event.inputs.job == 'moveto1st')
+    runs-on: ubuntu-latest
+    env:
+      CREDENTIALS: ${{ secrets.CREDENTIALS }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install dependencies
+        run: npm install
+      - name: Run moveto1st
+        run: npm run moveto1st

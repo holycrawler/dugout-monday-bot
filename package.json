@@ -1,0 +1,17 @@
+{
+  "name": "mondaybot",
+  "version": "1.0.0",
+  "description": "Automatically rotates players between your first team and youth team every Monday using GitHub Actions.",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "movetoyouth": "node index.js toyouth",
+    "moveto1st": "node index.js to1st"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^17.2.1",
+    "jsdom": "^26.1.0"
+  }
+}
