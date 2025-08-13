@@ -1,7 +1,7 @@
 import parseHtmlToDom from "./parseHtmlToDom.js";
 
 const doLogin = async ({ username, password, cookie }) => {
-  console.log(`Logging in as ${username}...`);
+  console.log(`Logging in...`);
   try {
     const response = await fetch("https://www.dugout-online.com/", {
       method: "POST",
