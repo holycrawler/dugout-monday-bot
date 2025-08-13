@@ -18,13 +18,15 @@ const movePlayer = async ({ cookie }, playerdata, payload) => {
     );
     const text = await response.text();
     const dom = parseHtmlToDom(text);
+
     console.log(
-      `${playerName} is now on: ${
+      `Player ${playerdata.name} (${playerdata.id}) moved to ${
         !!dom.querySelector("form[name=movetoyouthform]")
-          ? "First Team"
-          : "Youth Team"
-      }`
+          ? "[First Team]"
+          : "[Youth Team]"
+      } successfully.`
     );
+
     if (!response.ok) {
       throw new Error(
         `Failed to move player ${playerId}: ${response.statusText}`

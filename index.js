@@ -53,17 +53,7 @@ if (NUMBER_OF_PLAYERS_TO_MOVE <= 0) {
 //////////////////////////////////////////////////////////////
 for (let i = 0; i < NUMBER_OF_PLAYERS_TO_MOVE; i++) {
   const player = youthPlayers[i];
-  console.log(
-    `[${credentials.username}] Moving player ${player.name} (${player.id}) to ${
-      param === "toyouth" ? "Youth Team" : "First Team"
-    }...`
-  );
   await movePlayer(credentials, player, payload);
-  console.log(
-    `[${credentials.username}] Player ${player.name} (${player.id}) moved to ${
-      param === "toyouth" ? "Youth Team" : "First Team"
-    } successfully.`
-  );
   console.log("-----------------------------------------------------");
 }
 process.exit(0);
