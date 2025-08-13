@@ -1,7 +1,7 @@
 import parseHtmlToDom from "./parseHtmlToDom.js";
 
 const doLogin = async ({ username, password, cookie }) => {
-  console.log(`[${username}] Logging in as ${username}...`);
+  console.log(`Logging in as ${username}...`);
   try {
     const response = await fetch("https://www.dugout-online.com/", {
       method: "POST",
@@ -25,13 +25,13 @@ const doLogin = async ({ username, password, cookie }) => {
     if (
       loginDom.querySelector("div.header_username").textContent === username
     ) {
-      console.log(`[${username}] Login successful.`);
+      console.log(`Login successful.`);
     } else {
-      console.error(`[${username}] Login failed.`);
+      console.error(`Login failed.`);
     }
     return loginDom || null;
   } catch (error) {
-    console.error(`[${username}] POST request failed: ${error.message}`);
+    console.error(`POST request failed: ${error.message}`);
     throw error;
   }
 };

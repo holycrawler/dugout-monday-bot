@@ -53,7 +53,7 @@ if (NUMBER_OF_PLAYERS_TO_MOVE <= 0) {
 //////////////////////////////////////////////////////////////
 for (let i = 0; i < NUMBER_OF_PLAYERS_TO_MOVE; i++) {
   const player = youthPlayers[i];
-  await movePlayer(credentials, player, payload);
   console.log("-----------------------------------------------------");
+  await movePlayer(credentials, player, payload);
 }
 process.exit(0);
