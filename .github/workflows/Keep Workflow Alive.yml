@@ -1,7 +1,9 @@
 name: Keep Workflow Alive
+
 on:
   schedule:
-    - cron: "0 0 1 * *" # Runs on the 1st of every month
+    - cron: "0 0 1 * *" # Runs on the 1st of every month at 00:00 UTC
+  workflow_dispatch: # Allows manual trigger for testing
 
 jobs:
   keepalive:
@@ -12,9 +14,9 @@ jobs:
 
       - name: Create Keepalive Commit
         run: |
-          date > keepalive.txt
+          date > .keepalive # Hidden file so it doesn't clutter repo
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add keepalive.txt
-          git commit -m "chore: keep workflow alive"
+          git add .keepalive
+          git commit -m "chore: keep workflow alive [skip ci]"
           git push
