@@ -16,7 +16,7 @@ on:
 
 jobs:
   movetoyouth:
-    if: github.event.schedule == '0 12 * * 1' || (github.event_name == 'workflow_dispatch' && github.event.inputs.job == 'movetoyouth')
+    if: github.event.schedule == '0 9 * * 1' || (github.event_name == 'workflow_dispatch' && github.event.inputs.job == 'movetoyouth')
     runs-on: ubuntu-latest
     env:
       CREDENTIALS: ${{ secrets.CREDENTIALS }}
@@ -28,7 +28,7 @@ jobs:
         run: npm run movetoyouth
 
   moveto1st:
-    if: github.event.schedule == '0 0 * * 2' || (github.event_name == 'workflow_dispatch' && github.event.inputs.job == 'moveto1st')
+    if: github.event.schedule == '0 1 * * 2' || (github.event_name == 'workflow_dispatch' && github.event.inputs.job == 'moveto1st')
     runs-on: ubuntu-latest
     env:
       CREDENTIALS: ${{ secrets.CREDENTIALS }}
